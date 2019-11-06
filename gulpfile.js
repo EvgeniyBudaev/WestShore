@@ -10,7 +10,7 @@ let gulp = require('gulp'),
 
 gulp.task('clean', async function(){
   del.sync('dist')
-})
+});
 
 gulp.task('scss', function(){
   return gulp.src('app/scss/**/*.scss')
@@ -81,10 +81,10 @@ gulp.task('export', function(){
 
 gulp.task('watch', function(){
   gulp.watch('app/scss/**/*.scss', gulp.parallel('scss'));
-  gulp.watch('app/*.html', gulp.parallel('html'))
-  gulp.watch('app/js/*.js', gulp.parallel('script'))
+  gulp.watch('app/*.html', gulp.parallel('html'));
+  gulp.watch('app/js/*.js', gulp.parallel('script'));
 });
 
-gulp.task('build', gulp.series('clean', 'export'))
+gulp.task('build', gulp.series('clean', 'export'));
 
 gulp.task('default', gulp.parallel('css' ,'scss', 'js', 'browser-sync', 'watch'));
